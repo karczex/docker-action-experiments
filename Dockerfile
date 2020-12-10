@@ -1,8 +1,13 @@
-# Container image that runs your code
-FROM alpine:3.10
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2016-2020, Intel Corporation
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+FROM ubuntu:20.04
+MAINTAINER szymon.romik@intel.com
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+RUN apt update && \
+	DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
+	libpmemkv-dev \
+	make \
+	g++ \
+	pkg-config \
+ && rm -rf /var/lib/apt/lists/*
