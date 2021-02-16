@@ -12,6 +12,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    TEST_PATH: '/tmp/asdf"
+    TEST_PATH: '/tmp/asdf'
   args:
     - ${{ inputs.who-to-greet }}
