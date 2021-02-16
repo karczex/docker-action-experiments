@@ -11,6 +11,7 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    TEST_PATH: '/tmp/asdf"
   args:
-    - --shm-size=1G
     - ${{ inputs.who-to-greet }}
